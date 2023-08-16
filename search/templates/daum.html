@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>다음 뉴스 "파이썬" 검색결과</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  </head>
+
+  {% block contents %}
+
+    <body>
+      <div class="container">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <td>
+                <b></b>
+              </td>
+              <td>
+                <b>기사 제목</b>
+              </td>
+              <td>
+                <b>링크</b>
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            {% for daum in daum %}
+              <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ daum.title }}</td>
+                <td>
+                  <a href="{{ daum.link }}" target="_blank">{{ daum.link }}</a>
+                </td>
+              </tr>
+            {% endfor %}
+            <tbody></table>
+          </body>
+        {% endblock contents %}
